@@ -1,1580 +1,1348 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Al Sheikh BBQ | Lahore</title>
-  <meta name="description" content="Al Sheikh BBQ Lahore — Authentic Pakistani BBQ, kebabs and grilled specialties. Visit us near Madina Market or order through WhatsApp.">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --bg: #0b0b0b;
-      --bg2: #111111;
-      --card: #171717;
-      --gold: #d6a84f;
-      --gold-light: #f1cc72;
-      --cream: #fff6df;
-      --muted: #b5b5b5;
-      --border: rgba(214, 168, 79, 0.20);
-      --green: #25d366;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top right, rgba(214,168,79,0.10), transparent 30%),
-        radial-gradient(circle at bottom left, rgba(214,168,79,0.06), transparent 30%),
-        var(--bg);
-      color: white;
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font-family: inherit;
-    }
-
-    /* NAVBAR */
-
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(16px);
-      background: rgba(8, 8, 8, 0.90);
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-
-    .nav-inner {
-      max-width: 1180px;
-      margin: auto;
-      padding: 17px 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .logo {
-      font-family: Georgia, serif;
-      font-size: 23px;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-      color: var(--gold-light);
-    }
-
-    .logo span {
-      display: block;
-      color: #ffffff;
-      font-family: Arial, sans-serif;
-      font-size: 9px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin-top: -3px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      font-size: 14px;
-      color: #dddddd;
-    }
-
-    .nav-links a:hover {
-      color: var(--gold-light);
-    }
-
-    .nav-order {
-      background: var(--gold);
-      color: #111;
-      padding: 10px 17px;
-      border-radius: 7px;
-      font-weight: bold;
-    }
-
-    .nav-order:hover {
-      background: var(--gold-light);
-      color: #111;
-    }
-
-    /* HERO */
-
-    .hero {
-      min-height: 690px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      background:
-        linear-gradient(90deg, rgba(0,0,0,0.97) 0%, rgba(0,0,0,0.83) 45%, rgba(0,0,0,0.55) 100%),
-        url("https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1800&q=85") center/cover;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(0,0,0,0.1),
-        transparent 60%,
-        #0b0b0b 100%
-      );
-      pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 1180px;
-      width: 100%;
-      margin: auto;
-      padding: 80px 22px;
-    }
-
-    .hero-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid rgba(214,168,79,0.45);
-      background: rgba(214,168,79,0.09);
-      color: var(--gold-light);
-      padding: 7px 13px;
-      border-radius: 30px;
-      font-size: 12px;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      margin-bottom: 22px;
-    }
-
-    .hero h1 {
-      max-width: 700px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(48px, 7vw, 86px);
-      line-height: 0.98;
-      margin-bottom: 25px;
-      letter-spacing: -2px;
-    }
-
-    .hero h1 span {
-      color: var(--gold-light);
-    }
-
-    .hero p {
-      max-width: 610px;
-      color: #d1d1d1;
-      font-size: 18px;
-      margin-bottom: 32px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 13px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      padding: 14px 21px;
-      border-radius: 7px;
-      font-weight: bold;
-      font-size: 14px;
-      transition: 0.25s;
-    }
-
-    .btn-gold {
-      background: var(--gold);
-      color: #111;
-    }
-
-    .btn-gold:hover {
-      background: var(--gold-light);
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      border: 1px solid rgba(255,255,255,0.22);
-      color: white;
-      background: rgba(255,255,255,0.04);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--gold);
-      color: var(--gold-light);
-    }
-
-    /* INFO STRIP */
-
-    .info-strip {
-      max-width: 1120px;
-      margin: -45px auto 0;
-      position: relative;
-      z-index: 5;
-      padding: 0 20px;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      background: rgba(22,22,22,0.96);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 15px 50px rgba(0,0,0,0.35);
-    }
-
-    .info-box {
-      padding: 24px;
-      text-align: center;
-      border-right: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .info-box:last-child {
-      border-right: none;
-    }
-
-    .info-icon {
-      font-size: 24px;
-      margin-bottom: 7px;
-    }
-
-    .info-box strong {
-      display: block;
-      color: var(--gold-light);
-      font-size: 14px;
-      margin-bottom: 3px;
-    }
-
-    .info-box span {
-      color: #c0c0c0;
-      font-size: 13px;
-    }
-
-    /* GENERAL */
-
-    .section {
-      max-width: 1180px;
-      margin: auto;
-      padding: 100px 22px;
-    }
-
-    .section-heading {
-      margin-bottom: 45px;
-      text-align: center;
-    }
-
-    .eyebrow {
-      color: var(--gold-light);
-      font-size: 12px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .section-heading h2 {
-      font-family: Georgia, serif;
-      font-size: clamp(34px, 5vw, 52px);
-      line-height: 1.1;
-      margin-bottom: 14px;
-    }
-
-    .section-heading p {
-      max-width: 620px;
-      margin: auto;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    /* ABOUT */
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .about-image {
-      min-height: 450px;
-      border-radius: 16px;
-      background:
-        linear-gradient(180deg, transparent, rgba(0,0,0,0.65)),
-        url("https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1000&q=85") center/cover;
-      border: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .about-badge {
-      position: absolute;
-      left: 22px;
-      bottom: 22px;
-      background: rgba(10,10,10,0.90);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 16px 20px;
-      backdrop-filter: blur(10px);
-    }
-
-    .about-badge strong {
-      display: block;
-      color: var(--gold-light);
-      font-size: 18px;
-    }
-
-    .about-badge span {
-      color: #ccc;
-      font-size: 12px;
-    }
-
-    .about-text h3 {
-      font-family: Georgia, serif;
-      font-size: 35px;
-      margin-bottom: 18px;
-    }
-
-    .about-text p {
-      color: #bdbdbd;
-      margin-bottom: 17px;
-      font-size: 15px;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 25px;
-    }
-
-    .feature {
-      border: 1px solid rgba(255,255,255,0.08);
-      background: #121212;
-      border-radius: 9px;
-      padding: 14px;
-      color: #ddd;
-      font-size: 13px;
-    }
-
-    .feature span {
-      color: var(--gold-light);
-      margin-right: 6px;
-    }
-
-    /* FEATURED */
-
-    .featured-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .food-card {
-      background: linear-gradient(145deg, #181818, #101010);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px;
-      overflow: hidden;
-      transition: 0.3s;
-    }
-
-    .food-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(214,168,79,0.45);
-      box-shadow: 0 18px 45px rgba(0,0,0,0.35);
-    }
-
-    .food-image {
-      height: 230px;
-      background-size: cover;
-      background-position: center;
-    }
-
-    .food-card:nth-child(1) .food-image {
-      background-image:
-        linear-gradient(180deg, transparent, rgba(0,0,0,0.2)),
-        url("https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=900&q=85");
-    }
-
-    .food-card:nth-child(2) .food-image {
-      background-image:
-        linear-gradient(180deg, transparent, rgba(0,0,0,0.2)),
-        url("https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=900&q=85");
-    }
-
-    .food-card:nth-child(3) .food-image {
-      background-image:
-        linear-gradient(180deg, transparent, rgba(0,0,0,0.2)),
-        url("https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=900&q=85");
-    }
-
-    .food-info {
-      padding: 21px;
-    }
-
-    .food-info h3 {
-      font-family: Georgia, serif;
-      font-size: 23px;
-      margin-bottom: 7px;
-    }
-
-    .food-info p {
-      color: #999;
-      font-size: 13px;
-      margin-bottom: 17px;
-    }
-
-    .food-link {
-      color: var(--gold-light);
-      font-size: 13px;
-      font-weight: bold;
-    }
-
-    /* MENU */
-
-    .menu-area {
-      background: #0f0f0f;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .menu-filters {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 9px;
-      margin-bottom: 35px;
-    }
-
-    .filter-btn {
-      border: 1px solid rgba(255,255,255,0.12);
-      background: #171717;
-      color: #ccc;
-      padding: 10px 17px;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: 0.2s;
-      font-size: 13px;
-    }
-
-    .filter-btn:hover,
-    .filter-btn.active {
-      background: var(--gold);
-      color: #111;
-      border-color: var(--gold);
-      font-weight: bold;
-    }
-
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .menu-card {
-      background: #171717;
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 11px;
-      padding: 19px;
-      display: flex;
-      flex-direction: column;
-      min-height: 175px;
-      transition: 0.2s;
-    }
-
-    .menu-card:hover {
-      border-color: rgba(214,168,79,0.38);
-      transform: translateY(-2px);
-    }
-
-    .menu-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    .menu-card h3 {
-      font-family: Georgia, serif;
-      font-size: 19px;
-    }
-
-    .tag {
-      font-size: 9px;
-      color: var(--gold-light);
-      border: 1px solid rgba(214,168,79,0.35);
-      padding: 4px 7px;
-      border-radius: 20px;
-      white-space: nowrap;
-    }
-
-    .menu-card p {
-      color: #9f9f9f;
-      font-size: 12px;
-      margin: 8px 0 16px;
-    }
-
-    .menu-bottom {
-      margin-top: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .price {
-      color: var(--gold-light);
-      font-weight: bold;
-      font-size: 13px;
-    }
-
-    .order-small {
-      background: rgba(214,168,79,0.12);
-      border: 1px solid rgba(214,168,79,0.35);
-      color: var(--gold-light);
-      padding: 8px 11px;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: bold;
-    }
-
-    .order-small:hover {
-      background: var(--gold);
-      color: #111;
-    }
-
-    /* CTA */
-
-    .cta {
-      margin: 20px auto 0;
-      max-width: 1135px;
-      padding: 60px 30px;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      background:
-        linear-gradient(100deg, rgba(214,168,79,0.14), rgba(214,168,79,0.02)),
-        #141414;
-      text-align: center;
-    }
-
-    .cta h2 {
-      font-family: Georgia, serif;
-      font-size: 38px;
-      margin-bottom: 10px;
-    }
-
-    .cta p {
-      color: #aaa;
-      max-width: 570px;
-      margin: auto auto 25px;
-    }
-
-    /* CONTACT */
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-    }
-
-    .contact-card {
-      background: #151515;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 13px;
-      padding: 27px;
-    }
-
-    .contact-card h3 {
-      font-family: Georgia, serif;
-      font-size: 25px;
-      margin-bottom: 20px;
-    }
-
-    .contact-item {
-      display: flex;
-      gap: 14px;
-      padding: 15px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-
-    .contact-item:last-child {
-      border-bottom: none;
-    }
-
-    .contact-icon {
-      width: 40px;
-      height: 40px;
-      flex-shrink: 0;
-      display: grid;
-      place-items: center;
-      background: rgba(214,168,79,0.10);
-      border-radius: 8px;
-      color: var(--gold-light);
-    }
-
-    .contact-item strong {
-      display: block;
-      font-size: 12px;
-      color: var(--gold-light);
-      margin-bottom: 3px;
-    }
-
-    .contact-item span,
-    .contact-item a {
-      color: #c3c3c3;
-      font-size: 14px;
-    }
-
-    .map-box {
-      min-height: 100%;
-      border-radius: 13px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background:
-        linear-gradient(135deg, rgba(214,168,79,0.10), transparent),
-        #171717;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 35px;
-    }
-
-    .map-content .map-pin {
-      font-size: 45px;
-      margin-bottom: 15px;
-    }
-
-    .map-content h3 {
-      font-family: Georgia, serif;
-      font-size: 27px;
-      margin-bottom: 8px;
-    }
-
-    .map-content p {
-      color: #999;
-      max-width: 400px;
-      margin: auto auto 20px;
-      font-size: 14px;
-    }
-
-    /* FOOTER */
-
-    footer {
-      border-top: 1px solid rgba(255,255,255,0.07);
-      background: #080808;
-      padding: 35px 22px;
-      text-align: center;
-    }
-
-    .footer-logo {
-      color: var(--gold-light);
-      font-family: Georgia, serif;
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    footer p {
-      color: #777;
-      font-size: 12px;
-      margin-top: 7px;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 16px;
-      color: #999;
-      font-size: 12px;
-    }
-
-    .footer-links a:hover {
-      color: var(--gold-light);
-    }
-
-    /* WHATSAPP */
-
-    .whatsapp-float {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      z-index: 999;
-      width: 57px;
-      height: 57px;
-      border-radius: 50%;
-      background: var(--green);
-      color: white;
-      display: grid;
-      place-items: center;
-      font-size: 27px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.35);
-      transition: 0.2s;
-    }
-
-    .whatsapp-float:hover {
-      transform: scale(1.08);
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 900px) {
-      .nav-links {
-        display: none;
-      }
-
-      .featured-grid,
-      .menu-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .about-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about-image {
-        min-height: 380px;
-      }
-    }
-
-    @media (max-width: 650px) {
-      .hero {
-        min-height: 620px;
-      }
-
-      .hero-content {
-        padding-top: 60px;
-      }
-
-      .hero h1 {
-        font-size: 51px;
-      }
-
-      .hero p {
-        font-size: 15px;
-      }
-
-      .info-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .info-box {
-        border-right: none;
-        border-bottom: 1px solid rgba(255,255,255,0.08);
-      }
-
-      .info-box:last-child {
-        border-bottom: none;
-      }
-
-      .section {
-        padding: 75px 18px;
-      }
-
-      .featured-grid,
-      .menu-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .features {
-        grid-template-columns: 1fr;
-      }
-
-      .about-image {
-        min-height: 320px;
-      }
-
-      .cta {
-        padding: 45px 20px;
-        margin: 0 18px;
-      }
-
-      .cta h2 {
-        font-size: 31px;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .logo {
-        font-size: 19px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Al Sheikh BBQ | Lahore</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+  --red:#a92d32;
+  --red2:#7d1f24;
+  --gold:#e4bd62;
+  --cream:#fff9e9;
+  --dark:#090909;
+  --card:#151515;
+  --muted:#aaa;
+  --green:#25d366;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--dark);
+  color:white;
+  line-height:1.6;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button{
+  font-family:inherit;
+}
+
+/* NAVBAR */
+
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:rgba(8,8,8,.94);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:16px 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-family:Georgia,serif;
+  font-size:23px;
+  font-weight:bold;
+  color:#fff;
+}
+
+.logo span{
+  display:block;
+  font-family:Arial;
+  color:var(--gold);
+  font-size:9px;
+  letter-spacing:3px;
+  margin-top:-3px;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:25px;
+  font-size:14px;
+  color:#ddd;
+}
+
+.nav-links a:hover{
+  color:var(--gold);
+}
+
+.nav-order{
+  background:var(--red);
+  padding:10px 17px;
+  border-radius:7px;
+  color:white!important;
+  font-weight:bold;
+}
+
+/* HERO */
+
+.hero{
+  min-height:690px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+
+  background:
+  linear-gradient(90deg,rgba(0,0,0,.95),rgba(0,0,0,.76),rgba(0,0,0,.45)),
+  url("https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1800&q=85")
+  center/cover;
+}
+
+.hero-content{
+  max-width:1200px;
+  width:100%;
+  margin:auto;
+  padding:80px 22px;
+}
+
+.hero-label{
+  display:inline-block;
+  background:rgba(169,45,50,.18);
+  border:1px solid rgba(228,189,98,.45);
+  color:var(--gold);
+  padding:8px 14px;
+  border-radius:30px;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  margin-bottom:22px;
+}
+
+.hero h1{
+  font-family:Georgia,serif;
+  font-size:clamp(48px,7vw,88px);
+  line-height:1;
+  max-width:700px;
+  margin-bottom:24px;
+}
+
+.hero h1 span{
+  color:var(--gold);
+}
+
+.hero p{
+  max-width:600px;
+  color:#ddd;
+  font-size:18px;
+  margin-bottom:30px;
+}
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.btn{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  padding:14px 21px;
+  border-radius:7px;
+  font-weight:bold;
+  font-size:14px;
+  transition:.25s;
+}
+
+.btn-red{
+  background:var(--red);
+  color:white;
+}
+
+.btn-red:hover{
+  background:#c33a40;
+  transform:translateY(-2px);
+}
+
+.btn-outline{
+  border:1px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.04);
+}
+
+.btn-outline:hover{
+  border-color:var(--gold);
+  color:var(--gold);
+}
+
+/* INFO */
+
+.info{
+  max-width:1120px;
+  margin:-45px auto 0;
+  position:relative;
+  z-index:5;
+  padding:0 20px;
+}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  background:#151515;
+  border:1px solid rgba(228,189,98,.25);
+  border-radius:14px;
+  overflow:hidden;
+}
+
+.info-box{
+  padding:25px;
+  text-align:center;
+  border-right:1px solid rgba(255,255,255,.08);
+}
+
+.info-box:last-child{
+  border-right:none;
+}
+
+.info-box strong{
+  display:block;
+  color:var(--gold);
+  font-size:14px;
+}
+
+.info-box span{
+  color:#aaa;
+  font-size:13px;
+}
+
+/* SECTIONS */
+
+.section{
+  max-width:1200px;
+  margin:auto;
+  padding:95px 22px;
+}
+
+.heading{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.heading small{
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:11px;
+  font-weight:bold;
+}
+
+.heading h2{
+  font-family:Georgia,serif;
+  font-size:clamp(35px,5vw,55px);
+  margin:8px 0 12px;
+}
+
+.heading p{
+  max-width:650px;
+  margin:auto;
+  color:#999;
+}
+
+/* ABOUT */
+
+.about{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.about-img{
+  min-height:440px;
+  border-radius:16px;
+  background:
+  linear-gradient(180deg,transparent,rgba(0,0,0,.7)),
+  url("https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1000&q=85")
+  center/cover;
+}
+
+.about-text h2{
+  font-family:Georgia,serif;
+  font-size:38px;
+  margin-bottom:18px;
+}
+
+.about-text p{
+  color:#aaa;
+  margin-bottom:16px;
+}
+
+.features{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:25px;
+}
+
+.feature{
+  padding:14px;
+  background:#151515;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:8px;
+  color:#ddd;
+  font-size:13px;
+}
+
+.feature span{
+  color:var(--gold);
+}
+
+/* MENU */
+
+.menu-section{
+  background:#101010;
+  border-top:1px solid rgba(255,255,255,.05);
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.filters{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-bottom:35px;
+}
+
+.filter{
+  border:1px solid rgba(255,255,255,.12);
+  background:#181818;
+  color:#ccc;
+  padding:10px 17px;
+  border-radius:30px;
+  cursor:pointer;
+}
+
+.filter.active,
+.filter:hover{
+  background:var(--red);
+  color:white;
+  border-color:var(--red);
+}
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.menu-card{
+  background:#171717;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;
+  padding:20px;
+  transition:.25s;
+}
+
+.menu-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(228,189,98,.4);
+}
+
+.menu-card h3{
+  font-family:Georgia,serif;
+  font-size:20px;
+  margin-bottom:5px;
+}
+
+.menu-card p{
+  color:#999;
+  font-size:12px;
+  margin-bottom:14px;
+}
+
+.menu-price{
+  color:var(--gold);
+  font-weight:bold;
+  font-size:14px;
+}
+
+.order{
+  display:inline-block;
+  float:right;
+  background:rgba(169,45,50,.15);
+  border:1px solid rgba(169,45,50,.5);
+  color:#eee;
+  padding:6px 10px;
+  border-radius:5px;
+  font-size:10px;
+  font-weight:bold;
+}
+
+.order:hover{
+  background:var(--red);
+}
+
+/* FEATURED DEALS */
+
+.deals{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.deal{
+  background:
+  linear-gradient(135deg,rgba(169,45,50,.4),rgba(169,45,50,.05)),
+  #151515;
+  border:1px solid rgba(228,189,98,.25);
+  border-radius:14px;
+  padding:30px;
+}
+
+.deal h3{
+  color:var(--gold);
+  font-family:Georgia,serif;
+  font-size:27px;
+}
+
+.deal-price{
+  font-size:32px;
+  font-weight:bold;
+  margin:10px 0;
+}
+
+.deal p{
+  color:#aaa;
+  font-size:13px;
+}
+
+/* CONTACT */
+
+.contact{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.contact-card{
+  background:#151515;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:13px;
+  padding:28px;
+}
+
+.contact-card h3{
+  font-family:Georgia,serif;
+  font-size:27px;
+  margin-bottom:20px;
+}
+
+.contact-row{
+  display:flex;
+  gap:14px;
+  padding:15px 0;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.contact-row:last-child{
+  border-bottom:none;
+}
+
+.contact-icon{
+  width:40px;
+  height:40px;
+  display:grid;
+  place-items:center;
+  background:rgba(169,45,50,.16);
+  border-radius:8px;
+}
+
+.contact-row strong{
+  display:block;
+  color:var(--gold);
+  font-size:11px;
+}
+
+.contact-row span,
+.contact-row a{
+  color:#bbb;
+  font-size:14px;
+}
+
+.map{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  min-height:100%;
+  background:
+  linear-gradient(135deg,rgba(169,45,50,.18),transparent),
+  #151515;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:13px;
+  padding:30px;
+}
+
+.map h3{
+  font-family:Georgia,serif;
+  font-size:27px;
+  margin-bottom:8px;
+}
+
+.map p{
+  color:#999;
+  margin-bottom:20px;
+}
+
+/* FOOTER */
+
+footer{
+  background:#070707;
+  border-top:1px solid rgba(255,255,255,.07);
+  padding:35px 20px;
+  text-align:center;
+}
+
+.footer-logo{
+  font-family:Georgia,serif;
+  color:var(--gold);
+  font-size:23px;
+  font-weight:bold;
+}
+
+footer p{
+  color:#777;
+  font-size:12px;
+  margin-top:7px;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:var(--green);
+  display:grid;
+  place-items:center;
+  z-index:999;
+  font-size:27px;
+  box-shadow:0 8px 25px rgba(0,0,0,.4);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .about,
+  .contact{
+    grid-template-columns:1fr;
+  }
+
+  .menu-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .deals{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:600px){
+
+  .hero{
+    min-height:620px;
+  }
+
+  .hero h1{
+    font-size:52px;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+  }
+
+  .btn{
+    width:100%;
+  }
+
+  .info-grid{
+    grid-template-columns:1fr;
+  }
+
+  .info-box{
+    border-right:none;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+
+  .info-box:last-child{
+    border-bottom:none;
+  }
+
+  .section{
+    padding:70px 18px;
+  }
+
+  .about-img{
+    min-height:320px;
+  }
+
+  .features{
+    grid-template-columns:1fr;
+  }
+
+  .menu-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+</style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
-  <header class="navbar">
-    <div class="nav-inner">
+<!-- NAVBAR -->
 
-      <a href="#home" class="logo">
-        AL SHEIKH BBQ
-        <span>LAHORE • PAKISTAN</span>
-      </a>
+<header class="navbar">
+<div class="nav-inner">
 
-      <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#specialties">Specialties</a>
-        <a href="#menu">Menu</a>
-        <a href="#contact">Contact</a>
-        <a
-          class="nav-order"
-          href="https://wa.me/923124997288?text=Hello%20Al%20Sheikh%20BBQ%2C%20I%20would%20like%20to%20place%20an%20order."
-          target="_blank">
-          Order on WhatsApp
-        </a>
-      </nav>
+<a href="#home" class="logo">
+AL SHEIKH BBQ
+<span>LAHORE • PAKISTAN</span>
+</a>
 
-    </div>
-  </header>
+<nav class="nav-links">
+<a href="#about">About</a>
+<a href="#menu">Menu</a>
+<a href="#deals">Deals</a>
+<a href="#contact">Contact</a>
 
+<a
+class="nav-order"
+href="https://wa.me/923124997288?text=Hello%20Al%20Sheikh%20BBQ%2C%20I%20would%20like%20to%20place%20an%20order."
+target="_blank">
+Order Now
+</a>
+</nav>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
+</div>
+</header>
 
-    <div class="hero-content">
 
-      <div class="hero-label">
-        🔥 Authentic Pakistani BBQ
-      </div>
+<!-- HERO -->
 
-      <h1>
-        The Taste of
-        <span>Real BBQ.</span>
-      </h1>
+<section class="hero" id="home">
 
-      <p>
-        Freshly grilled BBQ, flavorful kebabs and Pakistani favorites
-        prepared for people who appreciate real taste.
-      </p>
+<div class="hero-content">
 
-      <div class="hero-buttons">
+<div class="hero-label">
+🔥 Authentic Pakistani BBQ
+</div>
 
-        <a
-          class="btn btn-gold"
-          href="https://wa.me/923124997288?text=Hello%20Al%20Sheikh%20BBQ%2C%20I%20would%20like%20to%20place%20an%20order."
-          target="_blank">
-          💬 Order on WhatsApp
-        </a>
+<h1>
+The Real Taste of
+<span>Al Sheikh.</span>
+</h1>
 
-        <a class="btn btn-outline" href="#menu">
-          Explore Menu →
-        </a>
+<p>
+BBQ, Tikka Boti, Kababs, Karahi, Handi and
+special family deals — prepared for Lahore's
+BBQ lovers.
+</p>
 
-      </div>
+<div class="hero-buttons">
 
-    </div>
+<a
+class="btn btn-red"
+href="https://wa.me/923124997288?text=Hello%20Al%20Sheikh%20BBQ%2C%20I%20would%20like%20to%20place%20an%20order."
+target="_blank">
+💬 Order on WhatsApp
+</a>
 
-  </section>
+<a class="btn btn-outline" href="#menu">
+Explore Full Menu
+</a>
 
+</div>
 
-  <!-- QUICK INFO -->
-  <div class="info-strip">
+</div>
 
-    <div class="info-grid">
+</section>
 
-      <div class="info-box">
-        <div class="info-icon">🔥</div>
-        <strong>BBQ & Pakistani Cuisine</strong>
-        <span>Grilled favorites & traditional taste</span>
-      </div>
 
-      <div class="info-box">
-        <div class="info-icon">📍</div>
-        <strong>11/12 Stop, Lahore</strong>
-        <span>Near Madina Market</span>
-      </div>
+<!-- INFO -->
 
-      <div class="info-box">
-        <div class="info-icon">🕕</div>
-        <strong>Open Daily</strong>
-        <span>6:00 PM — 2:00 AM</span>
-      </div>
+<div class="info">
 
-    </div>
+<div class="info-grid">
 
-  </div>
+<div class="info-box">
+<strong>📍 LOCATION</strong>
+<span>11/12 Stop Near Madina Market, Township Lahore</span>
+</div>
 
+<div class="info-box">
+<strong>🕕 OPEN DAILY</strong>
+<span>6:00 PM — 2:00 AM</span>
+</div>
 
-  <!-- ABOUT -->
-  <section class="section" id="about">
+<div class="info-box">
+<strong>📞 CONTACT</strong>
+<span>0312-4997288</span>
+</div>
 
-    <div class="about-grid">
+</div>
 
-      <div class="about-image">
+</div>
 
-        <div class="about-badge">
-          <strong>Authentic BBQ</strong>
-          <span>Made for Lahore's BBQ lovers</span>
-        </div>
 
-      </div>
+<!-- ABOUT -->
 
-      <div class="about-text">
+<section class="section" id="about">
 
-        <div class="eyebrow">About Us</div>
+<div class="about">
 
-        <h3>Good BBQ starts with real flavor.</h3>
+<div class="about-img"></div>
 
-        <p>
-          At Al Sheikh BBQ, the focus is simple:
-          delicious Pakistani food, freshly prepared BBQ and
-          satisfying flavors.
-        </p>
+<div class="about-text">
 
-        <p>
-          From grilled chicken to flavorful beef kebabs,
-          our menu is designed for people who want a proper
-          BBQ meal with family and friends.
-        </p>
+<h2>Authentic BBQ. Real Pakistani Taste.</h2>
 
-        <div class="features">
+<p>
+Welcome to Al Sheikh BBQ — a place for authentic
+Pakistani BBQ, grilled specialties and traditional
+desi flavors.
+</p>
 
-          <div class="feature">
-            <span>✓</span> Freshly prepared food
-          </div>
+<p>
+Our menu brings together Tikka Boti, Kababs,
+Karahi, Handi, Tawa specialties and sharing deals
+for families and friends.
+</p>
 
-          <div class="feature">
-            <span>✓</span> BBQ specialties
-          </div>
+<div class="features">
 
-          <div class="feature">
-            <span>✓</span> Takeaway available
-          </div>
+<div class="feature">
+<span>✓</span> Fresh BBQ
+</div>
 
-          <div class="feature">
-            <span>✓</span> Delivery available
-          </div>
+<div class="feature">
+<span>✓</span> Family Platters
+</div>
 
-        </div>
+<div class="feature">
+<span>✓</span> Delivery Available
+</div>
 
-      </div>
+<div class="feature">
+<span>✓</span> Takeaway
+</div>
 
-    </div>
+</div>
 
-  </section>
+</div>
 
+</div>
 
-  <!-- SPECIALTIES -->
-  <section class="section" id="specialties">
+</section>
 
-    <div class="section-heading">
 
-      <div class="eyebrow">From The Grill</div>
+<!-- MENU -->
 
-      <h2>Our BBQ Specialties</h2>
+<section class="menu-section" id="menu">
 
-      <p>
-        A selection of popular BBQ favorites and Pakistani flavors.
-      </p>
+<div class="section">
 
-    </div>
+<div class="heading">
 
+<small>Al Sheikh BBQ</small>
 
-    <div class="featured-grid">
+<h2>Our Menu</h2>
 
-      <div class="food-card">
+<p>
+Explore the menu and order your favorite BBQ
+directly through WhatsApp.
+</p>
 
-        <div class="food-image"></div>
+</div>
 
-        <div class="food-info">
 
-          <h3>BBQ Beef</h3>
+<div class="filters">
 
-          <p>
-            Richly seasoned beef prepared over the grill for
-            a smoky and satisfying BBQ experience.
-          </p>
+<button class="filter active" onclick="filterMenu('all',this)">
+All
+</button>
 
-          <a
-            class="food-link"
-            href="https://wa.me/923124997288?text=Hello%2C%20I%27d%20like%20to%20order%20BBQ%20Beef."
-            target="_blank">
-            Order via WhatsApp →
-          </a>
+<button class="filter" onclick="filterMenu('tawa',this)">
+Tawa
+</button>
 
-        </div>
+<button class="filter" onclick="filterMenu('tikka',this)">
+Tikka Boti
+</button>
 
-      </div>
+<button class="filter" onclick="filterMenu('kabab',this)">
+Kabab
+</button>
 
+<button class="filter" onclick="filterMenu('karahi',this)">
+Karahi
+</button>
 
-      <div class="food-card">
+<button class="filter" onclick="filterMenu('handi',this)">
+Handi
+</button>
 
-        <div class="food-image"></div>
+<button class="filter" onclick="filterMenu('nibblets',this)">
+Nibblets
+</button>
 
-        <div class="food-info">
+</div>
 
-          <h3>Beef Kebabs</h3>
 
-          <p>
-            Flavorful grilled kebabs made for a classic
-            Pakistani BBQ meal.
-          </p>
+<div class="menu-grid">
 
-          <a
-            class="food-link"
-            href="https://wa.me/923124997288?text=Hello%2C%20I%27d%20like%20to%20order%20Beef%20Kebabs."
-            target="_blank">
-            Order via WhatsApp →
-          </a>
 
-        </div>
+<!-- TAWA -->
 
-      </div>
+<div class="menu-card" data-category="tawa">
+<h3>Tawa Chicken</h3>
+<p>Special Tawa preparation.</p>
+<span class="menu-price">Rs. 800/-</span>
+</div>
 
+<div class="menu-card" data-category="tawa">
+<h3>White Tawa</h3>
+<p>White style Tawa specialty.</p>
+<span class="menu-price">Rs. 900/-</span>
+</div>
 
-      <div class="food-card">
+<div class="menu-card" data-category="tawa">
+<h3>Special Tawa</h3>
+<p>Special preparation for sharing.</p>
+<span class="menu-price">Rs. 1300 / Half Kg</span>
+</div>
 
-        <div class="food-image"></div>
+<div class="menu-card" data-category="tawa">
+<h3>Special Tawa</h3>
+<p>Rich traditional preparation.</p>
+<span class="menu-price">Rs. 1200 / Half Kg</span>
+</div>
 
-        <div class="food-info">
 
-          <h3>Chicken BBQ</h3>
+<!-- TIKKA BOTI -->
 
-          <p>
-            Tender chicken prepared with traditional spices
-            and grilled for a smoky finish.
-          </p>
+<div class="menu-card" data-category="tikka">
+<h3>Chicken Tikka</h3>
+<p>Traditional grilled chicken tikka.</p>
+<span class="menu-price">Rs. 300</span>
+</div>
 
-          <a
-            class="food-link"
-            href="https://wa.me/923124997288?text=Hello%2C%20I%27d%20like%20to%20order%20Chicken%20BBQ."
-            target="_blank">
-            Order via WhatsApp →
-          </a>
+<div class="menu-card" data-category="tikka">
+<h3>Beef Boti</h3>
+<p>Juicy grilled beef boti.</p>
+<span class="menu-price">Rs. 500</span>
+</div>
 
-        </div>
+<div class="menu-card" data-category="tikka">
+<h3>Afghani Boti</h3>
+<p>Afghani-style seasoned boti.</p>
+<span class="menu-price">Rs. 480</span>
+</div>
 
-      </div>
+<div class="menu-card" data-category="tikka">
+<h3>Chicken Malai Boti</h3>
+<p>Soft and creamy chicken boti.</p>
+<span class="menu-price">Rs. 430</span>
+</div>
 
-    </div>
+<div class="menu-card" data-category="tikka">
+<h3>Reshmi Boti</h3>
+<p>Soft, tender and flavorful boti.</p>
+<span class="menu-price">Rs. 480</span>
+</div>
 
-  </section>
+<div class="menu-card" data-category="tikka">
+<h3>Chicken Tikka Boti</h3>
+<p>Classic BBQ boti preparation.</p>
+<span class="menu-price">Rs. 480</span>
+</div>
 
+<div class="menu-card" data-category="tikka">
+<h3>Achari Boti</h3>
+<p>Spicy achari-style BBQ boti.</p>
+<span class="menu-price">Rs. 580</span>
+</div>
 
-  <!-- MENU -->
-  <section class="menu-area" id="menu">
 
-    <div class="section">
+<!-- KABAB -->
 
-      <div class="section-heading">
+<div class="menu-card" data-category="kabab">
+<h3>Chicken Kabab</h3>
+<p>3 pieces.</p>
+<span class="menu-price">Rs. 250</span>
+</div>
 
-        <div class="eyebrow">Explore</div>
+<div class="menu-card" data-category="kabab">
+<h3>Beef Kabab</h3>
+<p>3 pieces.</p>
+<span class="menu-price">Rs. 300</span>
+</div>
 
-        <h2>Our Menu</h2>
+<div class="menu-card" data-category="kabab">
+<h3>Chapli Kabab</h3>
+<p>4 pieces.</p>
+<span class="menu-price">Rs. 400</span>
+</div>
 
-        <p>
-          Explore some of our BBQ and Pakistani favorites.
-          Contact us on WhatsApp for current prices and availability.
-        </p>
+<div class="menu-card" data-category="kabab">
+<h3>Gola Kabab</h3>
+<p>3 pieces.</p>
+<span class="menu-price">Rs. 300</span>
+</div>
 
-      </div>
+<div class="menu-card" data-category="kabab">
+<h3>Chicken Reshmi Kabab</h3>
+<p>3 pieces.</p>
+<span class="menu-price">Rs. 350</span>
+</div>
 
+<div class="menu-card" data-category="kabab">
+<h3>Beef Reshmi Kabab</h3>
+<p>3 pieces.</p>
+<span class="menu-price">Rs. 400</span>
+</div>
 
-      <div class="menu-filters">
+<div class="menu-card" data-category="kabab">
+<h3>Chicken Cheese Kabab</h3>
+<p>3 pieces.</p>
+<span class="menu-price">Rs. 430</span>
+</div>
 
-        <button class="filter-btn active" onclick="filterMenu('all', this)">
-          All
-        </button>
+<div class="menu-card" data-category="kabab">
+<h3>Beef Cheese Kabab</h3>
+<p>3 pieces.</p>
+<span class="menu-price">Rs. 480</span>
+</div>
 
-        <button class="filter-btn" onclick="filterMenu('bbq', this)">
-          BBQ
-        </button>
 
-        <button class="filter-btn" onclick="filterMenu('kebab', this)">
-          Kebabs
-        </button>
+<!-- KARAHI -->
 
-        <button class="filter-btn" onclick="filterMenu('chicken', this)">
-          Chicken
-        </button>
+<div class="menu-card" data-category="karahi">
+<h3>Chicken Karahi</h3>
+<p>Traditional Pakistani Karahi.</p>
+<span class="menu-price">Rs. 1800 / 1kg</span>
+</div>
 
-        <button class="filter-btn" onclick="filterMenu('special', this)">
-          Specials
-        </button>
+<div class="menu-card" data-category="karahi">
+<h3>Beef Karahi</h3>
+<p>Rich beef Karahi.</p>
+<span class="menu-price">Rs. 2400 / 1kg</span>
+</div>
 
-      </div>
+<div class="menu-card" data-category="karahi">
+<h3>Mutton Karahi</h3>
+<p>Traditional mutton Karahi.</p>
+<span class="menu-price">Rs. 2500 / 1kg</span>
+</div>
 
+<div class="menu-card" data-category="karahi">
+<h3>Chicken White Karahi</h3>
+<p>Creamy white Karahi.</p>
+<span class="menu-price">Rs. 2100 / 1kg</span>
+</div>
 
-      <div class="menu-grid" id="menuGrid">
 
+<!-- HANDI -->
 
-        <!-- BBQ -->
+<div class="menu-card" data-category="handi">
+<h3>Chicken Achari Handi</h3>
+<p>Half kg.</p>
+<span class="menu-price">Rs. 1200</span>
+</div>
 
-        <div class="menu-card" data-category="bbq">
+<div class="menu-card" data-category="handi">
+<h3>Chicken White Handi</h3>
+<p>Half kg.</p>
+<span class="menu-price">Rs. 1200</span>
+</div>
 
-          <div class="menu-top">
-            <h3>BBQ Beef</h3>
-            <span class="tag">BBQ</span>
-          </div>
+<div class="menu-card" data-category="handi">
+<h3>Chicken Makhni Handi</h3>
+<p>Half kg.</p>
+<span class="menu-price">Rs. 1400</span>
+</div>
 
-          <p>
-            Smoky grilled beef with rich Pakistani seasoning.
-          </p>
+<div class="menu-card" data-category="handi">
+<h3>Mutton Handi</h3>
+<p>Half kg.</p>
+<span class="menu-price">Rs. 1300</span>
+</div>
 
-          <div class="menu-bottom">
-            <span class="price">Ask for price</span>
 
-            <a
-              class="order-small"
-              href="https://wa.me/923124997288?text=Hello%2C%20I%27d%20like%20to%20order%20BBQ%20Beef."
-              target="_blank">
-              ORDER
-            </a>
-          </div>
+<!-- NIBBLETS -->
 
-        </div>
+<div class="menu-card" data-category="nibblets">
+<h3>Chicken Nuggets</h3>
+<p>7 pieces.</p>
+<span class="menu-price">Rs. 340</span>
+</div>
 
+<div class="menu-card" data-category="nibblets">
+<h3>Fries</h3>
+<p>Classic crispy fries.</p>
+<span class="menu-price">Rs. 150</span>
+</div>
 
-        <div class="menu-card" data-category="bbq chicken">
+<div class="menu-card" data-category="nibblets">
+<h3>Chicken Wings</h3>
+<p>6 pieces.</p>
+<span class="menu-price">Rs. 380</span>
+</div>
 
-          <div class="menu-top">
-            <h3>Chicken BBQ</h3>
-            <span class="tag">POPULAR</span>
-          </div>
+<div class="menu-card" data-category="nibblets">
+<h3>Chicken Cheese Balls</h3>
+<p>Snack-size crispy bites.</p>
+<span class="menu-price">Rs. 400</span>
+</div>
 
-          <p>
-            Grilled chicken prepared with flavorful spices.
-          </p>
+<div class="menu-card" data-category="nibblets">
+<h3>Chicken Strips</h3>
+<p>Crispy chicken strips.</p>
+<span class="menu-price">Rs. 500</span>
+</div>
 
-          <div class="menu-bottom">
-            <span class="price">Ask for price</span>
+<div class="menu-card" data-category="nibblets">
+<h3>Chicken Platter</h3>
+<p>Large sharing portion.</p>
+<span class="menu-price">Rs. 1500</span>
+</div>
 
-            <a
-              class="order-small"
-              href="https://wa.me/923124997288?text=Hello%2C%20I%27d%20like%20to%20order%20Chicken%20BBQ."
-              target="_blank">
-              ORDER
-            </a>
-          </div>
+</div>
 
-        </div>
+</div>
 
+</section>
 
-        <div class="menu-card" data-category="kebab">
 
-          <div class="menu-top">
-            <h3>Beef Kebabs</h3>
-            <span class="tag">GRILL</span>
-          </div>
+<!-- DEALS -->
 
-          <p>
-            Classic beef kebabs grilled for a smoky finish.
-          </p>
+<section class="section" id="deals">
 
-          <div class="menu-bottom">
-            <span class="price">Ask for price</span>
+<div class="heading">
 
-            <a
-              class="order-small"
-              href="https://wa.me/923124997288?text=Hello%2C%20I%27d%20like%20to%20order%20Beef%20Kebabs."
-              target="_blank">
-              ORDER
-            </a>
-          </div>
+<small>Special Offers</small>
 
-        </div>
+<h2>Family & Student Deals</h2>
 
+<p>
+Perfect options for groups, families and students.
+</p>
 
-        <div class="menu-card" data-category="kebab chicken">
+</div>
 
-          <div class="menu-top">
-            <h3>Chicken Kebabs</h3>
-            <span class="tag">GRILL</span>
-          </div>
 
-          <p>
-            Tender chicken kebabs seasoned with traditional spices.
-          </p>
+<div class="deals">
 
-          <div class="menu-bottom">
-            <span class="price">Ask for price</span>
+<div class="deal">
 
-            <a
-              class="order-small"
-              href="https://wa.me/923124997288?text=Hello%2C%20I%27d%20like%20to%20order%20Chicken%20Kebabs."
-              target="_blank">
-              ORDER
-            </a>
-          </div>
+<h3>Family Platter</h3>
 
-        </div>
+<div class="deal-price">
+Rs. 5,500/-
+</div>
 
+<p>
+A generous family sharing platter featuring
+multiple BBQ items. Perfect for family gatherings
+and group dining.
+</p>
 
-        <div class="menu-card" data-category="chicken special">
+<br>
 
-          <div class="menu-top">
-            <h3>Chicken Malai Boti</h3>
-            <span class="tag">SPECIAL</span>
-          </div>
+<a
+class="btn btn-red"
+href="https://wa.me/923124997288?text=Hello%2C%20I%20want%20to%20order%20the%20Family%20Platter%20for%20Rs.%205500."
+target="_blank">
+Order Family Platter
+</a>
 
-          <p>
-            Creamy, tender chicken with a rich BBQ flavor.
-          </p>
+</div>
 
-          <div class="menu-bottom">
-            <span class="price">Ask for price</span>
 
-            <a
-              class="order-small"
-              href="https://wa.me/923124997288?text=Hello%2C%20I%27d%20like%20to%20order%20Chicken%20Malai%20Boti."
-              target="_blank">
-              ORDER
-            </a>
-          </div>
+<div class="deal">
 
-        </div>
+<h3>Student Deal</h3>
 
+<div class="deal-price">
+Rs. 2,499/-
+</div>
 
-        <div class="menu-card" data-category="special">
+<p>
+4 Person Serving Deal including Chicken Achari
+Handi, Malai Boti and additional BBQ items
+as shown in the restaurant menu.
+</p>
 
-          <div class="menu-top">
-            <h3>Mutton Karahi</h3>
-            <span class="tag">SPECIAL</span>
-          </div>
+<br>
 
-          <p>
-            A rich Pakistani favorite perfect for a hearty meal.
-          </p>
+<a
+class="btn btn-red"
+href="https://wa.me/923124997288?text=Hello%2C%20I%20want%20to%20order%20the%20Student%20Deal%20for%20Rs.%202499."
+target="_blank">
+Order Student Deal
+</a>
 
-          <div class="menu-bottom">
-            <span class="price">Ask for price</span>
+</div>
 
-            <a
-              class="order-small"
-              href="https://wa.me/923124997288?text=Hello%2C%20I%27d%20like%20to%20order%20Mutton%20Karahi."
-              target="_blank">
-              ORDER
-            </a>
-          </div>
+</div>
 
-        </div>
+</section>
 
 
-        <div class="menu-card" data-category="bbq chicken">
+<!-- ARABI PASTE -->
 
-          <div class="menu-top">
-            <h3>Chicken Skewers</h3>
-            <span class="tag">BBQ</span>
-          </div>
+<section class="section">
 
-          <p>
-            Grilled chicken pieces served with classic BBQ flavor.
-          </p>
+<div class="heading">
 
-          <div class="menu-bottom">
-            <span class="price">Ask for price</span>
+<small>Special</small>
 
-            <a
-              class="order-small"
-              href="https://wa.me/923124997288?text=Hello%2C%20I%27d%20like%20to%20order%20Chicken%20Skewers."
-              target="_blank">
-              ORDER
-            </a>
-          </div>
+<h2>Arabi Paste</h2>
 
-        </div>
+<p>
+Our signature BBQ paste special.
+</p>
 
+</div>
 
-        <div class="menu-card" data-category="special">
+<div style="text-align:center;">
 
-          <div class="menu-top">
-            <h3>Family BBQ</h3>
-            <span class="tag">SHARING</span>
-          </div>
+<div class="deal" style="max-width:500px;margin:auto;">
 
-          <p>
-            Ask our team about available BBQ combinations
-            for family and group dining.
-          </p>
+<h3>Arabi Paste</h3>
 
-          <div class="menu-bottom">
-            <span class="price">Ask for price</span>
+<div class="deal-price">
+Rs. 500/-
+</div>
 
-            <a
-              class="order-small"
-              href="https://wa.me/923124997288?text=Hello%2C%20please%20share%20your%20current%20Family%20BBQ%20options."
-              target="_blank">
-              ASK
-            </a>
-          </div>
+<p>
+A flavorful grilled specialty prepared
+with Al Sheikh's BBQ style.
+</p>
 
-        </div>
+<br>
 
+<a
+class="btn btn-red"
+href="https://wa.me/923124997288?text=Hello%2C%20I%20want%20to%20order%20Arabi%20Paste."
+target="_blank">
+Order Now
+</a>
 
-        <div class="menu-card" data-category="bbq">
+</div>
 
-          <div class="menu-top">
-            <h3>Grilled Chicken</h3>
-            <span class="tag">BBQ</span>
-          </div>
+</div>
 
-          <p>
-            Juicy grilled chicken prepared for a classic BBQ meal.
-          </p>
+</section>
 
-          <div class="menu-bottom">
-            <span class="price">Ask for price</span>
 
-            <a
-              class="order-small"
-              href="https://wa.me/923124997288?text=Hello%2C%20I%27d%20like%20to%20order%20Grilled%20Chicken."
-              target="_blank">
-              ORDER
-            </a>
-          </div>
+<!-- CONTACT -->
 
-        </div>
+<section class="section" id="contact">
 
-      </div>
+<div class="heading">
 
-    </div>
+<small>Visit Us</small>
 
-  </section>
+<h2>Al Sheikh BBQ</h2>
 
+<p>
+Come enjoy authentic BBQ and Pakistani cuisine
+in Lahore.
+</p>
 
-  <!-- CTA -->
+</div>
 
-  <section class="section">
 
-    <div class="cta">
+<div class="contact">
 
-      <div class="eyebrow">Hungry?</div>
+<div class="contact-card">
 
-      <h2>Let's Get Your BBQ Started.</h2>
+<h3>Contact Information</h3>
 
-      <p>
-        Send us a WhatsApp message to ask about today's menu,
-        prices, availability or to place your order.
-      </p>
+<div class="contact-row">
 
-      <a
-        class="btn btn-gold"
-        href="https://wa.me/923124997288?text=Hello%20Al%20Sheikh%20BBQ%2C%20I%20would%20like%20to%20know%20today%27s%20menu%20and%20prices."
-        target="_blank">
-        💬 WhatsApp Al Sheikh BBQ
-      </a>
+<div class="contact-icon">📍</div>
 
-    </div>
+<div>
+<strong>ADDRESS</strong>
+<span>
+11/12 Stop Near Madina Market,
+Township Lahore
+</span>
+</div>
 
-  </section>
+</div>
 
 
-  <!-- CONTACT -->
+<div class="contact-row">
 
-  <section class="section" id="contact">
+<div class="contact-icon">📞</div>
 
-    <div class="section-heading">
+<div>
+<strong>PHONE / WHATSAPP</strong>
 
-      <div class="eyebrow">Find Us</div>
+<a href="https://wa.me/923124997288" target="_blank">
+0312-4997288
+</a>
 
-      <h2>Visit Al Sheikh BBQ</h2>
+</div>
 
-      <p>
-        Come enjoy BBQ and Pakistani favorites in Lahore.
-      </p>
+</div>
 
-    </div>
 
+<div class="contact-row">
 
-    <div class="contact-grid">
+<div class="contact-icon">🕕</div>
 
-      <div class="contact-card">
+<div>
+<strong>OPENING HOURS</strong>
+<span>
+Daily — 6:00 PM to 2:00 AM
+</span>
+</div>
 
-        <h3>Contact Information</h3>
+</div>
 
 
-        <div class="contact-item">
+<div class="contact-row">
 
-          <div class="contact-icon">📍</div>
+<div class="contact-icon">🛵</div>
 
-          <div>
-            <strong>ADDRESS</strong>
-            <span>
-              11/12 Stop, near Madina Market,
-              Lahore, Punjab, Pakistan
-            </span>
-          </div>
+<div>
+<strong>DELIVERY</strong>
+<span>
+Delivery available — contact us on WhatsApp
+</span>
+</div>
 
-        </div>
+</div>
 
+</div>
 
-        <div class="contact-item">
 
-          <div class="contact-icon">📞</div>
+<div class="map">
 
-          <div>
-            <strong>PHONE / WHATSAPP</strong>
+<div>
 
-            <a
-              href="https://wa.me/923124997288"
-              target="_blank">
-              +92 312 4997288
-            </a>
+<div style="font-size:50px;">📍</div>
 
-          </div>
+<h3>Find Us in Lahore</h3>
 
-        </div>
+<p>
+11/12 Stop Near Madina Market,
+Township Lahore
+</p>
 
+<a
+class="btn btn-red"
+href="https://www.google.com/maps/search/?api=1&query=Al+Sheikh+BBQ+11%2F12+Stop+Near+Madina+Market+Township+Lahore"
+target="_blank">
+Open Google Maps
+</a>
 
-        <div class="contact-item">
+</div>
 
-          <div class="contact-icon">🕕</div>
+</div>
 
-          <div>
-            <strong>OPENING HOURS</strong>
+</div>
 
-            <span>
-              Daily — 6:00 PM to 2:00 AM
-            </span>
+</section>
 
-          </div>
 
-        </div>
+<!-- FOOTER -->
 
+<footer>
 
-        <div class="contact-item">
+<div class="footer-logo">
+AL SHEIKH BBQ
+</div>
 
-          <div class="contact-icon">🍽️</div>
+<p>
+Authentic Pakistani BBQ • Lahore
+</p>
 
-          <div>
-            <strong>AVAILABLE</strong>
+<p>
+© 2026 Al Sheikh BBQ. All rights reserved.
+</p>
 
-            <span>
-              Dine-in • Takeaway • Delivery
-            </span>
+</footer>
 
-          </div>
 
-        </div>
+<!-- WHATSAPP -->
 
-      </div>
+<a
+class="whatsapp"
+href="https://wa.me/923124997288?text=Hello%20Al%20Sheikh%20BBQ%2C%20I%20would%20like%20to%20place%20an%20order."
+target="_blank">
+💬
+</a>
 
 
-      <div class="map-box">
+<script>
 
-        <div class="map-content">
+function filterMenu(category,button){
 
-          <div class="map-pin">📍</div>
+const cards=document.querySelectorAll(".menu-card");
+const buttons=document.querySelectorAll(".filter");
 
-          <h3>11/12 Stop, Lahore</h3>
+buttons.forEach(btn=>{
+btn.classList.remove("active");
+});
 
-          <p>
-            Near Madina Market.
-            Open daily from 6 PM until 2 AM.
-          </p>
+button.classList.add("active");
 
-          <a
-            class="btn btn-gold"
-            href="https://www.google.com/maps/search/?api=1&query=Al+Sheikh+BBQ+11%2F12+Stop+near+Madina+Market+Lahore"
-            target="_blank">
-            Open in Google Maps
-          </a>
+cards.forEach(card=>{
 
-        </div>
+if(category==="all" || card.dataset.category.includes(category)){
+card.style.display="block";
+}else{
+card.style.display="none";
+}
 
-      </div>
+});
 
-    </div>
+}
 
-  </section>
-
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <div class="footer-logo">
-      AL SHEIKH BBQ
-    </div>
-
-    <p>
-      Authentic Pakistani BBQ • Lahore
-    </p>
-
-    <div class="footer-links">
-
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#menu">Menu</a>
-      <a href="#contact">Contact</a>
-
-    </div>
-
-    <p style="margin-top:22px;">
-      © 2026 Al Sheikh BBQ. All rights reserved.
-    </p>
-
-  </footer>
-
-
-  <!-- FLOATING WHATSAPP -->
-
-  <a
-    class="whatsapp-float"
-    href="https://wa.me/923124997288?text=Hello%20Al%20Sheikh%20BBQ%2C%20I%20would%20like%20to%20place%20an%20order."
-    target="_blank"
-    aria-label="WhatsApp">
-    ☎
-  </a>
-
-
-  <!-- JAVASCRIPT -->
-
-  <script>
-
-    function filterMenu(category, button) {
-
-      const cards = document.querySelectorAll(".menu-card");
-      const buttons = document.querySelectorAll(".filter-btn");
-
-      buttons.forEach(btn => {
-        btn.classList.remove("active");
-      });
-
-      button.classList.add("active");
-
-      cards.forEach(card => {
-
-        const categories = card.dataset.category.split(" ");
-
-        if (category === "all" || categories.includes(category)) {
-          card.style.display = "flex";
-        } else {
-          card.style.display = "none";
-        }
-
-      });
-
-    }
-
-  </script>
+</script>
 
 </body>
 </html>
